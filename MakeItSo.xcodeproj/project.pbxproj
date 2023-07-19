@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04C037C92A668A5A005045D3 /* MakeItSoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C037C82A668A5A005045D3 /* MakeItSoApp.swift */; };
-		04C037CB2A668A5A005045D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C037CA2A668A5A005045D3 /* ContentView.swift */; };
+		04C037CB2A668A5A005045D3 /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C037CA2A668A5A005045D3 /* RemindersListView.swift */; };
 		04C037CD2A668A5C005045D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C037CC2A668A5C005045D3 /* Assets.xcassets */; };
 		04C037D02A668A5C005045D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C037CF2A668A5C005045D3 /* Preview Assets.xcassets */; };
 		04C037DA2A668A5C005045D3 /* MakeItSoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C037D92A668A5C005045D3 /* MakeItSoTests.swift */; };
@@ -16,6 +16,7 @@
 		04C037E62A668A5C005045D3 /* MakeItSoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C037E52A668A5C005045D3 /* MakeItSoUITestsLaunchTests.swift */; };
 		45708FBF2A67B65A00B8A838 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45708FBE2A67B65A00B8A838 /* Reminder.swift */; };
 		45D6A2952A67C87F00DF8A7E /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6A2942A67C87F00DF8A7E /* AddReminderView.swift */; };
+		45FFC6B12A67E346004E631D /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FFC6B02A67E346004E631D /* RemindersListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 /* Begin PBXFileReference section */
 		04C037C52A668A5A005045D3 /* MakeItSo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeItSo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C037C82A668A5A005045D3 /* MakeItSoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeItSoApp.swift; sourceTree = "<group>"; };
-		04C037CA2A668A5A005045D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04C037CA2A668A5A005045D3 /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
 		04C037CC2A668A5C005045D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C037CF2A668A5C005045D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04C037D52A668A5C005045D3 /* MakeItSoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeItSoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +49,7 @@
 		04C037E52A668A5C005045D3 /* MakeItSoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeItSoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		45708FBE2A67B65A00B8A838 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		45D6A2942A67C87F00DF8A7E /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		45FFC6B02A67E346004E631D /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,9 @@
 		04C037C72A668A5A005045D3 /* MakeItSo */ = {
 			isa = PBXGroup;
 			children = (
+				45FFC6AD2A67E243004E631D /* Features */,
 				04C037C82A668A5A005045D3 /* MakeItSoApp.swift */,
-				04C037CA2A668A5A005045D3 /* ContentView.swift */,
-				45708FBE2A67B65A00B8A838 /* Reminder.swift */,
 				04C037CC2A668A5C005045D3 /* Assets.xcassets */,
-				45D6A2942A67C87F00DF8A7E /* AddReminderView.swift */,
 				04C037CE2A668A5C005045D3 /* Preview Content */,
 			);
 			path = MakeItSo;
@@ -131,6 +131,49 @@
 				04C037E52A668A5C005045D3 /* MakeItSoUITestsLaunchTests.swift */,
 			);
 			path = MakeItSoUITests;
+			sourceTree = "<group>";
+		};
+		45FFC6AA2A67E219004E631D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45708FBE2A67B65A00B8A838 /* Reminder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		45FFC6AC2A67E23B004E631D /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				45FFC6B02A67E346004E631D /* RemindersListViewModel.swift */,
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		45FFC6AD2A67E243004E631D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				45FFC6AE2A67E24C004E631D /* Reminders */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		45FFC6AE2A67E24C004E631D /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				45FFC6AA2A67E219004E631D /* Models */,
+				45FFC6AC2A67E23B004E631D /* ModelViews */,
+				45FFC6AF2A67E266004E631D /* Views */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		45FFC6AF2A67E266004E631D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04C037CA2A668A5A005045D3 /* RemindersListView.swift */,
+				45D6A2942A67C87F00DF8A7E /* AddReminderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FFC6B12A67E346004E631D /* RemindersListViewModel.swift in Sources */,
 				45708FBF2A67B65A00B8A838 /* Reminder.swift in Sources */,
-				04C037CB2A668A5A005045D3 /* ContentView.swift in Sources */,
+				04C037CB2A668A5A005045D3 /* RemindersListView.swift in Sources */,
 				45D6A2952A67C87F00DF8A7E /* AddReminderView.swift in Sources */,
 				04C037C92A668A5A005045D3 /* MakeItSoApp.swift in Sources */,
 			);

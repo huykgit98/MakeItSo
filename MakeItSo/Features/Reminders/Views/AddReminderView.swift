@@ -27,8 +27,8 @@ struct AddReminderView: View {
         onCommit(reminder)
         dismiss()
     }
-    
-    private func cancel(){
+
+    private func cancel() {
         dismiss()
     }
 
@@ -42,9 +42,9 @@ struct AddReminderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                  Button(action: cancel) {
-                    Text("Cancel")
-                  }
+                    Button(action: cancel) {
+                        Text("Cancel")
+                    }
                 }
 
                 ToolbarItem(placement: .confirmationAction) {
@@ -53,7 +53,6 @@ struct AddReminderView: View {
                     }
                     .disabled(reminder.title.isEmpty)
                 }
-                
             }
             .onAppear {
                 focusedField = .title
