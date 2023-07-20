@@ -5,62 +5,70 @@
 //  Created by Negan on 20/07/2023.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Foundation
 
 public class RemindersRepository: ObservableObject {
+    @Published
+    var reminders = [Reminder]()
 
-  @Published
-  var reminders = [Reminder]()
+    private var listenerRegistration: ListenerRegistration?
 
-  private var listenerRegistration: ListenerRegistration?
+    init() {
+        subscribe()
+    }
 
-  init() {
-    subscribe()
-  }
+    deinit {
+        unsubscribe()
+    }
 
-  deinit {
-    unsubscribe()
-  }
+    func subscribe() {
+        if listenerRegistration == nil {
+            let query = Firestore.firestore().collection(Reminder.collectionName)
 
-  func subscribe() {
-    if listenerRegistration == nil {
-      let query = Firestore.firestore().collection(Reminder.collectionName)
+            listenerRegistration = query
+                .addSnapshotListener { [weak self] querySnapshot, error in
+                    guard let documents = querySnapshot?.documents else {
+                        print("No documents")
+                        return
+                    }
 
-      listenerRegistration = query
-        .addSnapshotListener { [weak self] (querySnapshot, error) in
-          guard let documents = querySnapshot?.documents else {
-            print("No documents")
-            return
-          }
-
-          print("Mapping \(documents.count) documents")
-          self?.reminders = documents.compactMap { queryDocumentSnapshot in
-            do {
-              return try queryDocumentSnapshot.data(as: Reminder.self)
-            }
-            catch {
-              print("Error while trying to map document \(queryDocumentSnapshot.documentID): \(error.localizedDescription)")
-              return nil
-            }
-          }
+                    print("Mapping \(documents.count) documents")
+                    self?.reminders = documents.compactMap { queryDocumentSnapshot in
+                        do {
+                            return try queryDocumentSnapshot.data(as: Reminder.self)
+                        } catch {
+                            print("Error while trying to map document \(queryDocumentSnapshot.documentID): \(error.localizedDescription)")
+                            return nil
+                        }
+                    }
+                }
         }
     }
-  }
 
-  private func unsubscribe() {
-    if listenerRegistration != nil {
-      listenerRegistration?.remove()
-      listenerRegistration = nil
+    private func unsubscribe() {
+        if listenerRegistration != nil {
+            listenerRegistration?.remove()
+            listenerRegistration = nil
+        }
     }
-  }
 
-  func addReminder(_ reminder: Reminder) throws {
-    try Firestore
-      .firestore()
-      .collection(Reminder.collectionName)
-      .addDocument(from: reminder)
-  }
+    func addReminder(_ reminder: Reminder) throws {
+        try Firestore
+            .firestore()
+            .collection(Reminder.collectionName)
+            .addDocument(from: reminder)
+    }
 
+    func updateReminder(_ reminder: Reminder) throws {
+        guard let documentId = reminder.id else {
+            fatalError("Reminder \(reminder.title) has no document ID.")
+        }
+        try Firestore
+            .firestore()
+            .collection(Reminder.collectionName)
+            .document(documentId)
+            .setData(from: reminder, merge: true)
+    }
 }
