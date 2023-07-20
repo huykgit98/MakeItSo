@@ -2,28 +2,34 @@
 //  RemindersListViewModel.swift
 //  MakeItSo
 //
-//  Created by Negan on 19/07/2023.
+//  Created by Negan on 20/07/2023.
 //
 
+import Combine
 import Foundation
 
 class RemindersListViewModel: ObservableObject {
     @Published
-    var reminders = Reminder.samples
-
-    private var remindersRepository: RemindersRepository =  RemindersRepository()
+    var reminders = [Reminder]()
 
     @Published
     var errorMessage: String?
-    
+
+    private var remindersRepository: RemindersRepository = .init()
+
+    init() {
+        remindersRepository
+            .$reminders
+            .assign(to: &$reminders)
+    }
+
     func addReminder(_ reminder: Reminder) {
-        do{
-          try  remindersRepository.addReminder(reminder)
+        do {
+            try remindersRepository.addReminder(reminder)
             errorMessage = nil
-        }
-        catch{
+        } catch {
             print(error)
-              errorMessage = error.localizedDescription
+            errorMessage = error.localizedDescription
         }
     }
 

@@ -5,40 +5,40 @@
 //  Created by mac on 18/07/2023.
 //
 
-import SwiftUI
-import FirebaseCore
 import FirebaseAuth
+import FirebaseCore
 import FirebaseFirestore
+import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
+    {
+        FirebaseApp.configure()
 
-    FirebaseApp.configure()
+        let useEmulator = UserDefaults.standard.bool(forKey: "useEmulator")
+        if useEmulator {
+            let settings = Firestore.firestore().settings
+            settings.host = "localhost:8080"
+            settings.isSSLEnabled = false
+            Firestore.firestore().settings = settings
 
-      let useEmulator = UserDefaults.standard.bool(forKey: "useEmulator")
-      if useEmulator {
-        let settings = Firestore.firestore().settings
-        settings.host = "localhost:8080"
-        settings.isSSLEnabled = false
-        Firestore.firestore().settings = settings
+            Auth.auth().useEmulator(withHost: "localhost", port: 9099)
+        }
 
-        Auth.auth().useEmulator(withHost: "localhost", port: 9099)
-      }
-
-    return true
-  }
+        return true
+    }
 }
 
 @main
 struct MakeItSoApp: App {
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  var body: some Scene {
-    WindowGroup {
-      NavigationStack {
-        RemindersListView()
-          .navigationTitle("Reminders")
-      }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    var body: some Scene {
+        WindowGroup {
+            NavigationStack {
+                RemindersListView()
+                    .navigationTitle("Reminders")
+            }
+        }
     }
-  }
 }

@@ -24,8 +24,8 @@
 		456E21F82A6816A50036F00D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 456E21F72A6816A50036F00D /* GoogleService-Info.plist */; };
 		45708FBF2A67B65A00B8A838 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45708FBE2A67B65A00B8A838 /* Reminder.swift */; };
 		45890BCB2A69176100BAF127 /* RemindersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BCA2A69176100BAF127 /* RemindersRepository.swift */; };
+		45890BCF2A69277400BAF127 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BCE2A69277400BAF127 /* RemindersListViewModel.swift */; };
 		45D6A2952A67C87F00DF8A7E /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6A2942A67C87F00DF8A7E /* AddReminderView.swift */; };
-		45FFC6B12A67E346004E631D /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FFC6B02A67E346004E631D /* RemindersListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,8 @@
 		456E21F72A6816A50036F00D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45708FBE2A67B65A00B8A838 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		45890BCA2A69176100BAF127 /* RemindersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRepository.swift; sourceTree = "<group>"; };
+		45890BCE2A69277400BAF127 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 		45D6A2942A67C87F00DF8A7E /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
-		45FFC6B02A67E346004E631D /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,20 +168,20 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		45890BCD2A6926D700BAF127 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				45890BCE2A69277400BAF127 /* RemindersListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		45FFC6AA2A67E219004E631D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				45708FBE2A67B65A00B8A838 /* Reminder.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		45FFC6AC2A67E23B004E631D /* ModelViews */ = {
-			isa = PBXGroup;
-			children = (
-				45FFC6B02A67E346004E631D /* RemindersListViewModel.swift */,
-			);
-			path = ModelViews;
 			sourceTree = "<group>";
 		};
 		45FFC6AD2A67E243004E631D /* Features */ = {
@@ -195,10 +195,10 @@
 		45FFC6AE2A67E24C004E631D /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				45890BCD2A6926D700BAF127 /* ViewModels */,
 				45890BC92A69174A00BAF127 /* Repositories */,
 				456E21E82A67F5BC0036F00D /* Styles */,
 				45FFC6AA2A67E219004E631D /* Models */,
-				45FFC6AC2A67E23B004E631D /* ModelViews */,
 				45FFC6AF2A67E266004E631D /* Views */,
 			);
 			path = Reminders;
@@ -378,7 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456E21EA2A67F5EE0036F00D /* ReminderToggleStyle.swift in Sources */,
-				45FFC6B12A67E346004E631D /* RemindersListViewModel.swift in Sources */,
+				45890BCF2A69277400BAF127 /* RemindersListViewModel.swift in Sources */,
 				456E21E72A67F1080036F00D /* RemindersListRowView.swift in Sources */,
 				45708FBF2A67B65A00B8A838 /* Reminder.swift in Sources */,
 				04C037CB2A668A5A005045D3 /* RemindersListView.swift in Sources */,

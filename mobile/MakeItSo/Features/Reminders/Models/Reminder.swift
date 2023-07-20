@@ -5,9 +5,8 @@
 //  Created by Negan on 19/07/2023.
 //
 
-import Foundation
 import FirebaseFirestoreSwift
-
+import Foundation
 
 struct Reminder: Identifiable, Codable {
     @DocumentID
@@ -17,10 +16,5 @@ struct Reminder: Identifiable, Codable {
 }
 
 extension Reminder {
-    static let samples = [
-        Reminder(title: "Build sample app", isCompleted: true),
-        Reminder(title: "Create tutorial"),
-        Reminder(title: "???"),
-        Reminder(title: "PROFIT!"),
-    ]
+  static let collectionName = "reminders"
 }
