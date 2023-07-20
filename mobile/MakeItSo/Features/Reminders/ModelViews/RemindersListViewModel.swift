@@ -11,8 +11,20 @@ class RemindersListViewModel: ObservableObject {
     @Published
     var reminders = Reminder.samples
 
+    private var remindersRepository: RemindersRepository =  RemindersRepository()
+
+    @Published
+    var errorMessage: String?
+    
     func addReminder(_ reminder: Reminder) {
-        reminders.append(reminder)
+        do{
+          try  remindersRepository.addReminder(reminder)
+            errorMessage = nil
+        }
+        catch{
+            print(error)
+              errorMessage = error.localizedDescription
+        }
     }
 
     func toggleCompleted(_ reminder: Reminder) {
