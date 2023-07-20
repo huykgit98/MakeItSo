@@ -25,6 +25,9 @@
 		45708FBF2A67B65A00B8A838 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45708FBE2A67B65A00B8A838 /* Reminder.swift */; };
 		45890BCB2A69176100BAF127 /* RemindersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BCA2A69176100BAF127 /* RemindersRepository.swift */; };
 		45890BCF2A69277400BAF127 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BCE2A69277400BAF127 /* RemindersListViewModel.swift */; };
+		45890BD22A694C5000BAF127 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 45890BD12A694C5000BAF127 /* Factory */; };
+		45890BD72A694D4300BAF127 /* Firebase+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BD62A694D4300BAF127 /* Firebase+Injection.swift */; };
+		45890BD92A694EF700BAF127 /* Repositories+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BD82A694EF700BAF127 /* Repositories+Injection.swift */; };
 		45D6A2952A67C87F00DF8A7E /* EditReminderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6A2942A67C87F00DF8A7E /* EditReminderDetailsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,8 @@
 		45708FBE2A67B65A00B8A838 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		45890BCA2A69176100BAF127 /* RemindersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRepository.swift; sourceTree = "<group>"; };
 		45890BCE2A69277400BAF127 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
+		45890BD62A694D4300BAF127 /* Firebase+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Injection.swift"; sourceTree = "<group>"; };
+		45890BD82A694EF700BAF127 /* Repositories+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repositories+Injection.swift"; sourceTree = "<group>"; };
 		45D6A2942A67C87F00DF8A7E /* EditReminderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +78,7 @@
 				456E21F62A680A360036F00D /* FirebaseFirestoreSwift in Frameworks */,
 				456E21F02A680A360036F00D /* FirebaseAnalyticsSwift in Frameworks */,
 				456E21F42A680A360036F00D /* FirebaseFirestore in Frameworks */,
+				45890BD22A694C5000BAF127 /* Factory in Frameworks */,
 				456E21F22A680A360036F00D /* FirebaseAuth in Frameworks */,
 				456E21EE2A680A360036F00D /* FirebaseAnalytics in Frameworks */,
 			);
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				45890BCA2A69176100BAF127 /* RemindersRepository.swift */,
+				45890BD82A694EF700BAF127 /* Repositories+Injection.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -174,6 +181,22 @@
 				45890BCE2A69277400BAF127 /* RemindersListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		45890BD32A694C8200BAF127 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				45890BD52A694C9800BAF127 /* Services */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		45890BD52A694C9800BAF127 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				45890BD62A694D4300BAF127 /* Firebase+Injection.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		45FFC6AA2A67E219004E631D /* Models */ = {
@@ -187,6 +210,7 @@
 		45FFC6AD2A67E243004E631D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				45890BD32A694C8200BAF127 /* Firebase */,
 				45FFC6AE2A67E24C004E631D /* Reminders */,
 			);
 			path = Features;
@@ -237,6 +261,7 @@
 				456E21F12A680A360036F00D /* FirebaseAuth */,
 				456E21F32A680A360036F00D /* FirebaseFirestore */,
 				456E21F52A680A360036F00D /* FirebaseFirestoreSwift */,
+				45890BD12A694C5000BAF127 /* Factory */,
 			);
 			productName = MakeItSo;
 			productReference = 04C037C52A668A5A005045D3 /* MakeItSo.app */;
@@ -312,6 +337,7 @@
 			mainGroup = 04C037BC2A668A5A005045D3;
 			packageReferences = (
 				456E21EC2A680A360036F00D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				45890BD02A694C5000BAF127 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = 04C037C62A668A5A005045D3 /* Products */;
 			projectDirPath = "";
@@ -378,9 +404,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				456E21EA2A67F5EE0036F00D /* ReminderToggleStyle.swift in Sources */,
+				45890BD72A694D4300BAF127 /* Firebase+Injection.swift in Sources */,
 				45890BCF2A69277400BAF127 /* RemindersListViewModel.swift in Sources */,
 				456E21E72A67F1080036F00D /* RemindersListRowView.swift in Sources */,
 				45708FBF2A67B65A00B8A838 /* Reminder.swift in Sources */,
+				45890BD92A694EF700BAF127 /* Repositories+Injection.swift in Sources */,
 				04C037CB2A668A5A005045D3 /* RemindersListView.swift in Sources */,
 				45890BCB2A69176100BAF127 /* RemindersRepository.swift in Sources */,
 				45D6A2952A67C87F00DF8A7E /* EditReminderDetailsView.swift in Sources */,
@@ -719,6 +747,14 @@
 				minimumVersion = 10.9.0;
 			};
 		};
+		45890BD02A694C5000BAF127 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -746,6 +782,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 456E21EC2A680A360036F00D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		45890BD12A694C5000BAF127 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45890BD02A694C5000BAF127 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

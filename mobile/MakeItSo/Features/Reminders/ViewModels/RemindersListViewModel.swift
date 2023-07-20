@@ -7,16 +7,20 @@
 
 import Combine
 import Foundation
+import Factory
 
 class RemindersListViewModel: ObservableObject {
+
     @Published
     var reminders = [Reminder]()
 
     @Published
     var errorMessage: String?
 
-    private var remindersRepository: RemindersRepository = .init()
-
+    // MARK: - Dependencies
+    @Injected(\.remindersRepository)
+    private var remindersRepository: RemindersRepository
+    
     init() {
         remindersRepository
             .$reminders
