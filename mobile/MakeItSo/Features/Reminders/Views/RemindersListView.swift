@@ -39,7 +39,6 @@ struct RemindersListView: View {
             }
         }
         .tint(.red)
-
     }
 }
 

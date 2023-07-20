@@ -15,7 +15,7 @@ struct RemindersListRowView: View {
         HStack {
             Toggle(isOn: $reminder.isCompleted) { /* empty on purpose */ }
                 .toggleStyle(.reminder)
-            
+
             Text(reminder.title)
         }
     }
