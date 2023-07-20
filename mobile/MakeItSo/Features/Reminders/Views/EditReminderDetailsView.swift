@@ -46,7 +46,7 @@ struct EditReminderDetailsView: View {
                     .focused($focusedField, equals: .title)
                     .onSubmit {
                         commit()
-                      }
+                    }
             }
             .navigationTitle("New Reminder")
             .navigationTitle(mode == .add ? "New Reminder" : "Details")
