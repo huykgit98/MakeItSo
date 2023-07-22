@@ -5,16 +5,17 @@
 //  Created by Negan on 20/07/2023.
 //
 
+import Combine
+import Factory
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Foundation
-import Factory
-
 
 public class RemindersRepository: ObservableObject {
     // MARK: - Dependencies
+
     @Injected(\.firestore) var firestore
-    
+
     @Published
     var reminders = [Reminder]()
 
@@ -60,8 +61,7 @@ public class RemindersRepository: ObservableObject {
     }
 
     func addReminder(_ reminder: Reminder) throws {
-        try Firestore
-            .firestore()
+        try firestore
             .collection(Reminder.collectionName)
             .addDocument(from: reminder)
     }
@@ -80,7 +80,6 @@ public class RemindersRepository: ObservableObject {
         guard let documentId = reminder.id else {
             fatalError("Reminder \(reminder.title) has no document ID.")
         }
-
         firestore
             .collection(Reminder.collectionName)
             .document(documentId)

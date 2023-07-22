@@ -12,9 +12,6 @@ struct EditReminderDetailsView: View {
         case title
     }
 
-    @Environment(\.dismiss)
-    private var dismiss
-
     @FocusState
     private var focusedField: FocusableField?
 
@@ -28,7 +25,10 @@ struct EditReminderDetailsView: View {
     @State
     var reminder = Reminder(title: "")
 
-    var onCommit: (_ reminder: Reminder) -> Void
+    @Environment(\.dismiss)
+    private var dismiss
+
+    let onCommit: (_ reminder: Reminder) -> Void
 
     private func commit() {
         onCommit(reminder)
@@ -48,7 +48,6 @@ struct EditReminderDetailsView: View {
                         commit()
                     }
             }
-            .navigationTitle("New Reminder")
             .navigationTitle(mode == .add ? "New Reminder" : "Details")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -57,7 +56,6 @@ struct EditReminderDetailsView: View {
                         Text("Cancel")
                     }
                 }
-
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: commit) {
                         Text(mode == .add ? "Add" : "Done")
@@ -72,7 +70,7 @@ struct EditReminderDetailsView: View {
     }
 }
 
-struct AddReminderView_Previews: PreviewProvider {
+struct EditReminderDetailsView_Previews: PreviewProvider {
     struct Container: View {
         @State var reminder = Reminder.samples[0]
         var body: some View {

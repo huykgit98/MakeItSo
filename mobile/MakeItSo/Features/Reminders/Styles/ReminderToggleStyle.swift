@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ReminderToggleStyle: ToggleStyle {
+    private let onStyle: AnyShapeStyle = .init(.tint)
+    private let offStyle: AnyShapeStyle = .init(.gray)
+
     func makeBody(configuration: Configuration) -> some View {
         HStack {
-            Image(systemName: configuration.isOn
-                ? "largecircle.fill.circle"
-                : "circle")
+            Image(systemName: configuration.isOn ? "largecircle.fill.circle" : "circle")
                 .resizable()
                 .frame(width: 24, height: 24)
-                .foregroundColor(configuration.isOn ? .accentColor : .gray)
+                .foregroundStyle(configuration.isOn ? onStyle : offStyle)
                 .onTapGesture {
                     configuration.isOn.toggle()
                 }

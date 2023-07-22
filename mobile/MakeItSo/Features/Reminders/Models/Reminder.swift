@@ -13,6 +13,11 @@ struct Reminder: Identifiable, Codable {
     var id: String?
     var title: String
     var isCompleted = false
+    var userId: String? = nil
+}
+
+extension Reminder {
+    static let collectionName = "reminders"
 }
 
 extension Reminder {
@@ -22,8 +27,4 @@ extension Reminder {
         Reminder(title: "???"),
         Reminder(title: "PROFIT!"),
     ]
-}
-
-extension Reminder {
-    static let collectionName = "reminders"
 }

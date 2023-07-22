@@ -13,9 +13,8 @@ struct RemindersListRowView: View {
 
     var body: some View {
         HStack {
-            Toggle(isOn: $reminder.isCompleted) { /* empty on purpose */ }
+            Toggle(isOn: $reminder.isCompleted) { /* no label, on purpose */ }
                 .toggleStyle(.reminder)
-
             Text(reminder.title)
             Spacer()
         }
@@ -34,6 +33,10 @@ struct RemindersListRowView_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        Container()
+        NavigationStack {
+            Container()
+                .listStyle(.plain)
+                .navigationTitle("Reminder")
+        }
     }
 }

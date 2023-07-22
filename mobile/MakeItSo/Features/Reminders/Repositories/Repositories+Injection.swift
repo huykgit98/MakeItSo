@@ -5,13 +5,13 @@
 //  Created by Negan on 20/07/2023.
 //
 
-import Foundation
 import Factory
+import Foundation
 
-extension Container {
-  public var remindersRepository: Factory<RemindersRepository> {
-    self {
-      RemindersRepository()
-    }.singleton
-  }
+public extension Container {
+    var remindersRepository: Factory<RemindersRepository> {
+        self {
+            RemindersRepository()
+        }.singleton
+    }
 }

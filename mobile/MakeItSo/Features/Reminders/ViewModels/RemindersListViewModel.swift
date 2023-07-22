@@ -6,11 +6,10 @@
 //
 
 import Combine
-import Foundation
 import Factory
+import Foundation
 
 class RemindersListViewModel: ObservableObject {
-
     @Published
     var reminders = [Reminder]()
 
@@ -18,9 +17,10 @@ class RemindersListViewModel: ObservableObject {
     var errorMessage: String?
 
     // MARK: - Dependencies
+
     @Injected(\.remindersRepository)
     private var remindersRepository: RemindersRepository
-    
+
     init() {
         remindersRepository
             .$reminders
@@ -46,13 +46,13 @@ class RemindersListViewModel: ObservableObject {
         }
     }
 
+    func deleteReminder(_ reminder: Reminder) {
+        remindersRepository.removeReminder(reminder)
+    }
+
     func setCompleted(_ reminder: Reminder, isCompleted: Bool) {
         var editedReminder = reminder
         editedReminder.isCompleted = isCompleted
         updateReminder(editedReminder)
-    }
-
-    func deleteReminder(_ reminder: Reminder) {
-        remindersRepository.removeReminder(reminder)
     }
 }
