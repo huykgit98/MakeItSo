@@ -37,6 +37,8 @@
 		45890BF42A6BD6B200BAF127 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BF32A6BD6B200BAF127 /* LoginView.swift */; };
 		45890BF62A6BD6D100BAF127 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BF52A6BD6D100BAF127 /* UserProfileView.swift */; };
 		45890BF82A6BD6F000BAF127 /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BF72A6BD6F000BAF127 /* GoogleSignInButton.swift */; };
+		45890BFA2A6BDB9E00BAF127 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BF92A6BDB9E00BAF127 /* AuthenticationService.swift */; };
+		45890BFC2A6BDC8E00BAF127 /* AuthenticationService+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45890BFB2A6BDC8E00BAF127 /* AuthenticationService+Injection.swift */; };
 		45D6A2952A67C87F00DF8A7E /* EditReminderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6A2942A67C87F00DF8A7E /* EditReminderDetailsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,8 @@
 		45890BF32A6BD6B200BAF127 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = SOURCE_ROOT; };
 		45890BF52A6BD6D100BAF127 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = SOURCE_ROOT; };
 		45890BF72A6BD6F000BAF127 /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = SOURCE_ROOT; };
+		45890BF92A6BDB9E00BAF127 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = SOURCE_ROOT; };
+		45890BFB2A6BDC8E00BAF127 /* AuthenticationService+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationService+Injection.swift"; sourceTree = SOURCE_ROOT; };
 		45D6A2942A67C87F00DF8A7E /* EditReminderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReminderDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +259,8 @@
 		45890BE82A6BD5EF00BAF127 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				45890BF92A6BDB9E00BAF127 /* AuthenticationService.swift */,
+				45890BFB2A6BDC8E00BAF127 /* AuthenticationService+Injection.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -505,6 +511,8 @@
 				45D6A2952A67C87F00DF8A7E /* EditReminderDetailsView.swift in Sources */,
 				04C037C92A668A5A005045D3 /* MakeItSoApp.swift in Sources */,
 				45890BF02A6BD66B00BAF127 /* AuthenticationView.swift in Sources */,
+				45890BFA2A6BDB9E00BAF127 /* AuthenticationService.swift in Sources */,
+				45890BFC2A6BDC8E00BAF127 /* AuthenticationService+Injection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
